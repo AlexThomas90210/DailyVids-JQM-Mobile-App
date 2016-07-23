@@ -1,0 +1,115 @@
+<!--
+* Author: Alex Thomas
+* Assignment: WE3WE4.0 Mobile Web Applications, Digital Skills Academy
+* Date : 2016/05/16
+* Ref:
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DayVids App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/themes/themeRoller.css" />
+    <link rel="stylesheet" href="./css/themes/jquery.mobile.icons.min.css" />
+    <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+</head>
+
+<body class="ui-alt-icon ui-nodisc-icon">
+
+<!-- MARK: Home Page -->
+<div data-role="page" id="Home" >
+
+    <!-- Info Panel -->
+    <div data-role="panel" data-display="overlay" id="info-panel">
+        <h4>DayVids</h4>
+        <p>DayVids provides daily videos on popular themes every day , each day is a new theme . We show one feature video to give you a taste the todays theme</p>
+        <h5>Categories</h5>
+        <p>Select a category to see which videos are available there</p>
+        <h5>Search</h5>
+        <p>Click the search button at the top right to search all of todays videos</p>
+    </div>
+
+    <!-- Search Panell -->
+    <div data-role="panel" data-display="overlay" data-position="right" id="search-panel">
+        <form>
+            <input data-type="search" id="search-input">
+        </form>
+        <div data-role="controlgroup" id="search-videos">
+            <!-- Dynamically Populated from JSON -->
+        </div>
+
+    </div>
+
+    <!-- Nav Bar -->
+    <div data-role="header">
+        <a href="#info-panel" data-iconshadow="true" data-icon="bars">Help</a>
+        <h1>DayVids</h1>
+        <a href="#search-panel" data-iconshadow="true" data-icon="search">Search</a>
+    </div>
+
+    <!-- Content -->
+    <div role="main" class="ui-content">
+        <h4 class="today-theme"><!-- Dynamically Populated from JSON --></h4>
+        <!-- Iframe for feature video -->
+        <iframe class="iframe" src="" width="420" height="315" frameborder="0" allowfullscreen allowscriptaccess="always"></iframe>
+        <!-- Todays Theme -->
+        <h5 class="category-header">Categories</h5>
+        <!-- Rows of Categories-->
+        <ul class="category-list" data-role="listview" data-inset="true">
+            <!-- Dynamically Populated from JSON -->
+        </ul>
+    </div>
+</div>
+
+
+<!-- MARK: Category Page -->
+<div data-role="page" id="Category">
+
+    <!-- Nav Bar -->
+    <div data-role="header">
+        <a href="#Home" data-icon="arrow-l" data-iconshadow="true"  data-transition="slide"  data-direction="reverse">Back</a>
+        <h1>Name Of Category</h1>
+    </div>
+
+    <!-- Content -->
+    <div role="main" class="ui-content">
+        <div class="ui-grid-a thumbnail-grid">
+            <!-- Dynamically Populated from JSON -->
+        </div>
+    </div>
+</div>
+
+
+<!-- MARK: Video Page -->
+<div data-role="page" id="Video">
+
+    <!-- Nav Bar -->
+    <div data-role="header">
+        <a id="BuggyBackButton" href="#Category" data-iconshadow="true" data-icon="delete"  data-transition="slideup"  data-direction="reverse">Close</a>
+        <h1>Video</h1>
+    </div>
+
+    <!-- Content -->
+    <div role="main" class="ui-content">
+        <iframe class="iframe" src="" width="420" height="315" frameborder="0" allowfullscreen></iframe>
+        <h3 class="video-name"><!-- Dynamically Populated from JSON --></h3>
+    </div>
+</div>
+
+<!-- functions -->
+<script src="./js/main.js" charset="utf-8"></script>
+<!-- model -->
+<script src="./js/model/AnimalsJSON.js" charset="utf-8"></script>
+<!-- view -->
+<script src="./js/view/views.js" charset="utf-8"></script>
+<!-- controller-->
+<script src="./js/Page-Controllers/home-controller.js" charset="utf-8"></script>
+<script src="./js/Page-Controllers/category-controller.js" charset="utf-8"></script>
+<script src="./js/Page-Controllers/video-controller.js" charset="utf-8"></script>
+
+</body>
+</html>
